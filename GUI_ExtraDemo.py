@@ -10,8 +10,8 @@ import time
 from tkinter import *
 from gpiozero import MotionSensor
 import RPi.GPIO as GPIO
-global active
-#active = 0
+#global active
+active = 0
 #For Butons check https://gpiozero.readthedocs.io/en/stable/api_input.html
 
 led1 = LED(17)
@@ -46,7 +46,8 @@ def button_clear():
         r_num = 0
 
 def button_call():
-#       if active == 1:
+        global active
+        if active == 1:
                 first_number = e.get()
                 global f_num
                 f_num = 0
@@ -72,9 +73,11 @@ def button_call():
                         activelabel.grid(row = 7, column = 2)
                         active = 0
 def motiondetect():
+        global active
+        active = 1
         activelabel = Label(root, text = "PLEASE SET YOUR PASSWORD", bg = "gray", fg = "black")
         activelabel.grid(row = 7, column = 2)
-        active = 1
+        
 
 def  motion_function():
         print("Motion Detected")
