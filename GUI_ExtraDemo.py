@@ -10,9 +10,8 @@ import time
 from tkinter import *
 from gpiozero import MotionSensor
 import RPi.GPIO as GPIO
-#global active
 active = 0
-#For Butons check https://gpiozero.readthedocs.io/en/stable/api_input.html
+
 
 led1 = LED(17)
 led2 = LED(27)
